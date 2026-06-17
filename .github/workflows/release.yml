@@ -31,13 +31,13 @@ jobs:
         shell: bash
         run: |
           ./gradlew nativeCompile
-          REPO="${GITHUB_REPOSITORY##*/}"
-          OUTPUT="${REPO}-${{ matrix.goos }}-${{ matrix.goarch }}"
+          BINARY=$(./gradlew properties -q | grep "^name:" | awk '{print $2}')
+          OUTPUT="${BINARY}-${{ matrix.goos }}-${{ matrix.goarch }}"
           if [[ "${{ matrix.goos }}" == "windows" ]]; then
-            cp "build/native/nativeCompile/${REPO}.exe" "${OUTPUT}.exe"
+            cp "build/native/nativeCompile/${BINARY}.exe" "${OUTPUT}.exe"
             echo "ASSET_NAME=${OUTPUT}.exe" >> "$GITHUB_ENV"
           else
-            cp "build/native/nativeCompile/${REPO}" "${OUTPUT}"
+            cp "build/native/nativeCompile/${BINARY}" "${OUTPUT}"
             echo "ASSET_NAME=${OUTPUT}" >> "$GITHUB_ENV"
           fi
 
