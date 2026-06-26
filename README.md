@@ -1,6 +1,6 @@
 # ArchUnit Plugin for Architectural Decision Enforcement
 
-[![License: Apache 2.0](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](./LICENSE)
+[![Build](https://github.com/stefan-ka/ad-plugin-archunit/actions/workflows/build.yml/badge.svg)](https://github.com/stefan-ka/ad-plugin-archunit/actions/workflows/build.yml) [![License: Apache 2.0](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](./LICENSE) [![Latest Release](https://img.shields.io/github/v/release/stefan-ka/ad-plugin-archunit?sort=semver)](https://github.com/stefan-ka/ad-plugin-archunit/releases)
 
 An [ad-guidance-tool](https://github.com/adr/ad-guidance-tool) enforcement plugin that compiles `code` rules into Java architecture tests using the [ArchUnit](https://www.archunit.org/) framework and JUnit 5. The generated `.java` files are compiled as part of a Maven or Gradle test project and run with `mvn test` or `./gradlew test`.
 
